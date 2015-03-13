@@ -54,6 +54,22 @@ public class BinarySearchTest {
 		SearchResult searchResult = BinarySearch.search(key, seq);
 		assertThat(seq.length, is(searchResult.getPosition()));
 	}
+	
+	@Test
+	public void testKeyIsFirstElementInSeqLength1() {
+		int[] seq = { 1 };
+		int key = 1;
+		SearchResult searchResult = BinarySearch.search(key, seq);
+		assertThat(1, is(searchResult.getPosition()));
+	}
+
+	@Test
+	public void testKeyIsLastElementInSeqLength1() {
+		int[] seq = { 1 };
+		int key = 1;
+		SearchResult searchResult = BinarySearch.search(key, seq);
+		assertThat(1, is(searchResult.getPosition()));
+	}
 
 	@Test
 	public void testKeyIsInTheMiddleOfEvenSeq() {
@@ -78,5 +94,12 @@ public class BinarySearchTest {
 		SearchResult searchResult = BinarySearch.search(key, seq);
 		assertThat(false, is(searchResult.isFound()));
 	}
-
+	
+	@Test
+	public void testKeyIsInSeqLenghtGreaterThan1() {
+		int[] seq = { 1, 3, 6, 8, 9 };
+		int key = 8;
+		SearchResult searchResult = BinarySearch.search(key, seq);
+		assertThat(true, is(searchResult.isFound()));
+	}
 }
