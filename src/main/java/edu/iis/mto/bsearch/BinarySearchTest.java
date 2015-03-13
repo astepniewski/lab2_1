@@ -2,6 +2,9 @@ package edu.iis.mto.bsearch;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
+
+import java.util.Arrays;
+
 import org.junit.Test;
 
 public class BinarySearchTest {
@@ -9,6 +12,12 @@ public class BinarySearchTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void testEmptySeq() {
 		int[] seq = new int[0];
+		BinarySearch.search(1, seq);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testSeqIsNotSorted() {
+		int[] seq = { 1, 45, 6, 2, 9 };
 		BinarySearch.search(1, seq);
 	}
 
