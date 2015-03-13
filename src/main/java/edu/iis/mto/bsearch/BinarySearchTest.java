@@ -1,6 +1,10 @@
 package edu.iis.mto.bsearch;
 
 import static org.junit.Assert.*;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 import junit.framework.Assert;
 
 import org.junit.BeforeClass;
@@ -38,6 +42,24 @@ public class BinarySearchTest {
     	SearchResult searchResult = binarySearch.search(key, seq);
     	assertFalse(searchResult.isFound());
     }
+    
+    @Test
+    public void testKeyIsFirstElementInSeq(){
+    	int[] seq = {1,3,6,8,9};
+    	int key = 1;
+    	SearchResult searchResult = binarySearch.search(key, seq);
+    	assertEquals(1, searchResult.getPosition());
+    }
+    
+    @Test
+    public void testKeyIsLastElementInSeq(){
+    	int[] seq = {1,3,6,8,9};
+    	int key = 9;
+    	SearchResult searchResult = binarySearch.search(key, seq);
+    	assertEquals(seq.length, searchResult.getPosition());
+    }
+    
+    
 
 
 }
