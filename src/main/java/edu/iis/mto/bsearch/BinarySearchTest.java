@@ -59,6 +59,22 @@ public class BinarySearchTest {
     	assertEquals(seq.length, searchResult.getPosition());
     }
     
+    @Test
+    public void testKeyIsInTheMiddleOfSeq(){
+    	int[] seq = {1,3,6,8,9,11};
+    	int key = 6;
+    	SearchResult searchResult = binarySearch.search(key, seq);
+    	assertEquals(seq.length/2, searchResult.getPosition());
+    }
+    
+    @Test
+    public void testKeyIsNotInSeqLenghtGreaterThan1(){
+    	int[] seq = {1,3,6,8,9};
+    	int key = 99;
+    	SearchResult searchResult = binarySearch.search(key, seq);
+    	assertFalse(searchResult.isFound());
+    }
+    
     
 
 
